@@ -17,7 +17,11 @@ public final class NaoFactory {
 	 * @return
 	 */
 	public static Nao getNao(String ip, int port) {
+		if(nao == null) {
+			nao = new NaoImpl(ip, port);
+		}
 		
-		return new NaoImpl(ip, port);
+		
+		return nao;
 	}
 }
