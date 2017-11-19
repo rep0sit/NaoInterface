@@ -57,12 +57,7 @@ public interface Nao {
 	 * @param text
 	 */
 	void greet(String text);
-	/**
-	 * Der Roboter macht eine genervte Bewegung
-	 * und spricht einen Text
-	 * @param text
-	 */
-	void isAnnoyed(String text);
+	
 	/**
 	 * Der Roboter jubelt und spricht einen
 	 * Text

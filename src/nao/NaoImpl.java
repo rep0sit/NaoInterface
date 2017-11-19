@@ -18,7 +18,7 @@ import utils.Stances;
 import static utils.Constants.*;
 
 
-public class NaoImpl implements Nao {
+class NaoImpl implements Nao {
 	
 	
 	private final int port;
@@ -177,11 +177,7 @@ public class NaoImpl implements Nao {
 
 	}
 
-	@Override
-	public void isAnnoyed(String text) {
-		// TODO Auto-generated method stub
 
-	}
 
 	@Override
 	public void happy(String text) {
