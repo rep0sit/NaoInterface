@@ -1,7 +1,7 @@
 package utils;
 
-public final class MotorNames {
-	private MotorNames() {}
+public final class Motors {
+	private Motors() {}
 	//HEAD
 	public static final String HEAD = "Head";
 	public static final String HEAD_YAW = "HeadYaw";
@@ -12,6 +12,7 @@ public final class MotorNames {
 	public static final String LEFT_SHOULDER_PITCH = "LShoulderPitch";
 	public static final String LEFT_SHOULDER_ROLL = "LShoulderRoll";
 	public static final String LEFT_ELBOW_YAW = "LElbowYaw";
+	public static final String LEFT_ELBOW_ROLL = "LElbowRoll";
 	public static final String LEFT_WRIST_YAW = "LWristYaw";
 	public static final String LEFT_HAND = "LHand";
 	
@@ -20,8 +21,9 @@ public final class MotorNames {
 	public static final String RIGHT_SHOULDER_PITCH = "RShoulderPitch";
 	public static final String RIGHT_SHOULDER_ROLL = "RShoulderRoll";
 	public static final String RIGHT_ELBOW_YAW = "RElbowYaw";
+	public static final String RIGHT_ELBOW_ROLL = "RElbowRoll";
 	public static final String RIGHT_WRIST_YAW = "RWristYaw";
-	public static final String RIGHT_HAND = "RHAnd";
+	public static final String RIGHT_HAND = "RHand";
 	
 	// LEFT LEG
 	public static final String LEFT_LEG = "LLeg";

@@ -9,14 +9,29 @@ import com.aldebaran.qi.helper.proxies.ALMotion;
 public final class Moves {
 	private Moves() {}
 	
+	
+	
 	/**
-	 * A method for combining multiple instances from class Move
-	 * and perform them simultaneously.
-	 * No Hand opening or closing supported!
+	 * Eine Bewegung mehrerer Motoren mit Endpositionen relativ zur 0-Position.
 	 * @param session
+	 * @param motion
 	 * @param moves
 	 */
-	public static void moveAbsolute(Session session, ALMotion motion, Move...moves){
+	public static void moveAbsolute(Session session, ALMotion motion, Move...moves) {
+		move(session, motion, true, moves);
+	}
+	
+	/**
+	 * Eine Bewegung mehrerer Motoren mit Endpositionen relativ zur jetzigen.
+	 * @param session
+	 * @param motion
+	 * @param moves
+	 */
+	public static void moveRelative(Session session, ALMotion motion, Move...moves) {
+		move(session, motion, false, moves);
+	}
+	
+	private static void move(Session session, ALMotion motion, boolean absolute, Move...moves){
 		
 		try {
 			motion = new ALMotion(session);
@@ -44,12 +59,7 @@ public final class Moves {
 		
 	}
 	
-	public void closeHand(Session session) {
-		
-	}
-	public void openHand(Session session) {
-		
-	}
+	
 	
 	
 }
