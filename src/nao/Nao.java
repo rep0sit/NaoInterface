@@ -50,7 +50,7 @@ public interface Nao {
 	 * spricht einen Text
 	 * @param text
 	 */
-	void showStone(String text);
+	void showRock(String text);
 	/**
 	 * Der Nao Roboter zeigt "Papier" und
 	 * spricht einen Text

@@ -9,7 +9,11 @@ public class Test {
 		
 		Nao nao = NaoFactory.getNao("localhost", 40051);
 		
-		nao.greet("Hey wie geht's denn so?");
+		nao.greet("Hallo, wie geht es denn so?");
+		nao.say("Herzlichen Glückwunsch, Sie haben gewonnen.");
+		nao.showRock("Stein");
+		nao.say("schlägt");
+		nao.showScissors("Schere");
 		
 		
 		

@@ -89,12 +89,7 @@ class NaoImpl implements Nao {
 		}
 	}
 	
-	public int getPort() {
-		return port;
-	}
-	public String getIp() {
-		return ip;
-	}
+	
 	
 	@Override
 	public void say(String text) {
@@ -132,7 +127,7 @@ class NaoImpl implements Nao {
 	}
 
 	@Override
-	public void showStone(String text) {
+	public void showRock(String text) {
 		stand(FLOAT_ONE_POINT_ZERO);
 		Move rightArm = new Move(Motors.RIGHT_SHOULDER_PITCH, .0, .85);
 		Move turnForeArm = new Move(Motors.RIGHT_ELBOW_YAW, 0.0, .85);
@@ -161,8 +156,9 @@ class NaoImpl implements Nao {
 		
 		
 		
-		say(text);
+		
 		sleep();
+		say(text);
 		stand(FLOAT_POINT_SIX_FIVE);
 
 	}
