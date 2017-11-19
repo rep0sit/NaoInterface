@@ -9,6 +9,12 @@ package nao;
  */
 public interface Nao {
 	/**
+	 * 
+	 * @return the current language of the Nao Object 
+	 * as a String
+	 */
+	String getLanguage();
+	/**
 	 * Stellt die Sprache für dieses Nao-Objekt ein.
 	 * @param language
 	 */

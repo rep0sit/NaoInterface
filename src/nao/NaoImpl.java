@@ -68,6 +68,7 @@ class NaoImpl implements Nao {
 			e.printStackTrace();
 		}
 	}
+	@Override
 	public String getLanguage() {
 		String l = null;
 		try {
@@ -78,6 +79,7 @@ class NaoImpl implements Nao {
 		}
 		return l;
 	}
+	@Override
 	public void setLanguage(String language) {
 		try {
 			tts.setLanguage(language);
