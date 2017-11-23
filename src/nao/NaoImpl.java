@@ -207,9 +207,11 @@ class NaoImpl implements Nao {
 		sleep();
 		stand(FLOAT_POINT_THREE);
 	}
-
-	@Override
-	public void standZero(float maxSpeedFraction) {
+	/**
+	 * Alle Motoren in die 0-Position.
+	 */
+	@SuppressWarnings("unused")
+	private void standZero(float maxSpeedFraction) {
 		try {
 			posture.applyPosture(Stances.STAND_ZERO, maxSpeedFraction);
 		} catch (CallError | InterruptedException e) {
@@ -218,9 +220,11 @@ class NaoImpl implements Nao {
 		}
 		
 	}
-
-	@Override
-	public void standInit(float maxSpeedFraction) {
+	/**
+	 * Initialer Stand. Nao kann von 
+	 * dieser Pose aus alles tun.
+	 */
+	private void standInit(float maxSpeedFraction) {
 		try {
 			posture.applyPosture(Stances.STAND_INIT, maxSpeedFraction);
 		} catch (CallError | InterruptedException e) {
@@ -229,9 +233,10 @@ class NaoImpl implements Nao {
 		}
 		
 	}
-
-	@Override
-	public void stand(float maxSpeedFraction) {
+	/**
+	 * Pose mit geringem Energieverbrauch.
+	 */
+	private void stand(float maxSpeedFraction) {
 		try {
 			posture.applyPosture(Stances.STAND, maxSpeedFraction);
 		} catch (CallError | InterruptedException e) {

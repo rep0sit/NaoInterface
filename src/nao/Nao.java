@@ -19,19 +19,19 @@ public interface Nao {
 	 * @param language
 	 */
 	void setLanguage(String language);
-	/**
-	 * Alle Motoren in die 0-Position.
-	 */
-	void standZero(float maxSpeedFraction);
-	/**
-	 * Initialer Stand. Nao kann von 
-	 * dieser Pose aus alles tun.
-	 */
-	void standInit(float maxSpeedFraction);
-	/**
-	 * Pose mit geringem Energieverbrauch.
-	 */
-	void stand(float maxSpeedFraction);
+//	/**
+//	 * Alle Motoren in die 0-Position.
+//	 */
+//	void standZero(float maxSpeedFraction);
+//	/**
+//	 * Initialer Stand. Nao kann von 
+//	 * dieser Pose aus alles tun.
+//	 */
+//	void standInit(float maxSpeedFraction);
+//	/**
+//	 * Pose mit geringem Energieverbrauch.
+//	 */
+//	void stand(float maxSpeedFraction);
 	
 	
 	/**
