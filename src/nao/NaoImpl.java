@@ -46,7 +46,7 @@ class NaoImpl implements Nao {
 		
 		try {
 			tts = new ALTextToSpeech(session);
-			tts.setLanguage(Languages.GERMAN);
+			tts.setLanguage(Languages.ENGLISH);
 			motion = new ALMotion(session);
 			posture = new ALRobotPosture(session);
 			
@@ -107,9 +107,9 @@ class NaoImpl implements Nao {
 
 	@Override
 	public void showScissors(String text) {
-		stand(FLOAT_ONE_POINT_ZERO);
+		stand(FLOAT_POINT_THREE);
 		
-		Move rightArm = new Move(Motors.RIGHT_SHOULDER_PITCH, .0, .85);
+		Move rightArm = new Move(Motors.RIGHT_SHOULDER_PITCH, .0, Constants.STANDARD_MOVING_TIME);
 		Moves.moveAbsolute(session, motion, rightArm);
 		
 		try {
@@ -122,29 +122,29 @@ class NaoImpl implements Nao {
 		}
 		say(text);
 		sleep();
-		stand(FLOAT_POINT_SIX_FIVE);
+		stand(FLOAT_POINT_THREE);
 
 	}
 
 	@Override
 	public void showRock(String text) {
-		stand(FLOAT_ONE_POINT_ZERO);
-		Move rightArm = new Move(Motors.RIGHT_SHOULDER_PITCH, .0, .85);
-		Move turnForeArm = new Move(Motors.RIGHT_ELBOW_YAW, 0.0, .85);
+		stand(FLOAT_POINT_THREE);
+		Move rightArm = new Move(Motors.RIGHT_SHOULDER_PITCH, .0, Constants.STANDARD_MOVING_TIME);
+		Move turnForeArm = new Move(Motors.RIGHT_ELBOW_YAW, 0.0, Constants.STANDARD_MOVING_TIME);
 		Moves.moveAbsolute(session, motion, rightArm, turnForeArm);
 		
 		
 		
 		say(text);
 		sleep();
-		stand(FLOAT_POINT_SIX_FIVE);
+		stand(FLOAT_POINT_THREE);
 	}
 
 	@Override
 	public void showPaper(String text) {
 		stand(FLOAT_ONE_POINT_ZERO);
-		Move rightArm = new Move(Motors.LEFT_SHOULDER_PITCH, .0, .85);
-		Move turnForeArm = new Move(Motors.LEFT_ELBOW_YAW, 0.0, .85);
+		Move rightArm = new Move(Motors.LEFT_SHOULDER_PITCH, .0, Constants.STANDARD_MOVING_TIME);
+		Move turnForeArm = new Move(Motors.LEFT_ELBOW_YAW, 0.0, Constants.STANDARD_MOVING_TIME);
 		
 		Moves.moveAbsolute(session, motion, rightArm, turnForeArm);
 		try {
@@ -159,15 +159,15 @@ class NaoImpl implements Nao {
 		
 		sleep();
 		say(text);
-		stand(FLOAT_POINT_SIX_FIVE);
+		stand(FLOAT_POINT_THREE);
 
 	}
 
 	@Override
 	public void greet(String text) {
-		stand(Constants.FLOAT_ONE_POINT_ZERO);
-		Move wave1 = new Move(Motors.LEFT_SHOULDER_PITCH, -50.0, .5);
-		Move wave2 = new Move(Motors.LEFT_SHOULDER_ROLL, 25.0,0.5);
+		stand(FLOAT_POINT_THREE);
+		Move wave1 = new Move(Motors.LEFT_SHOULDER_PITCH, -50.0, STANDARD_MOVING_TIME);
+		Move wave2 = new Move(Motors.LEFT_SHOULDER_ROLL, 25.0, STANDARD_MOVING_TIME);
 		Moves.moveAbsolute(session, motion, wave1, wave2);
 		say(text);
 		sleep();
@@ -179,7 +179,7 @@ class NaoImpl implements Nao {
 
 	@Override
 	public void happy(String text) {
-		stand(FLOAT_ONE_POINT_ZERO);
+		stand(FLOAT_POINT_THREE);
 		double armAngle = -50.0;
 		double time = 1.0;
 		Move leftArm = 
@@ -201,7 +201,7 @@ class NaoImpl implements Nao {
 	public void sad(String text) {
 		stand(FLOAT_POINT_THREE);
 		
-		Move headDown = new Move(Motors.HEAD_PITCH, 15.0, 1.0);
+		Move headDown = new Move(Motors.HEAD_PITCH, 15.0, STANDARD_MOVING_TIME);
 		Moves.moveAbsolute(session, motion, headDown);
 		say(text);
 		sleep();

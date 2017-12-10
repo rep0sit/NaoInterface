@@ -13,4 +13,6 @@ public final class Constants {
 	
 	
 	public static final int STANDARD_WAITING_TIME = 400;
+	
+	public static final double STANDARD_MOVING_TIME = 1.0;
 }

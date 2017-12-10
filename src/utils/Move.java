@@ -3,6 +3,7 @@ package utils;
 /**
  * Eine Klasse für eine einfache, 
  * lineare Bewegung.
+ * 
  * @author Nelli Welker, Etienne Onasch
  *
  */

@@ -7,14 +7,16 @@ public class Test {
 	public static void main(String...args) {
 		
 		
-		Nao nao = NaoFactory.getNao("localhost", 40051);
+		Nao nao = NaoFactory.getNao("192.168.1.121", 9559);
 		
-		nao.greet("Hallo, wie geht es denn so?");
-		nao.say("Herzlichen Glückwunsch, Sie haben gewonnen.");
-		nao.showRock("Stein");
-		nao.say("schlägt");
-		nao.showScissors("Schere");
+		//nao.setLanguage(Languages.GERMAN);
 		
+//		nao.greet("Great Success!");
+//		nao.say("Ich bin ein Berliner.");
+//		nao.showRock("Rock.");
+//		nao.say("schlägt");
+		nao.showScissors("Scissors.");
+//		
 		
 		
 	}
