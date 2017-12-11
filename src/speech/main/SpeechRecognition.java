@@ -1,11 +1,25 @@
 package speech.main;
 
-import naointerface.main.Nao;
+import java.util.Collection;
+import java.util.Set;
 
-public class SpeechRecognition {
-//	private final String url;
+public interface SpeechRecognition {
+	/**
+	 * adds new vocabulary to this Speechrecognition module.
+	 * @param voca
+	 */
+	void addVocabulary(Collection<String> voca);
+	/**
+	 * adds new vocabulary to this Speechrecognition module.
+	 * @param voca
+	 */
+	void addVocabulary(String...vocas);
 	
-//	public SpeechRecognition(Nao nao) {
-//		
-//	}
+	/**
+	 * Returns a set of the vocabulary.
+	 * @return
+	 */
+	Set<String> getVocabulary();
+	
+	
 }

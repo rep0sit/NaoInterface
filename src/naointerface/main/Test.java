@@ -1,8 +1,16 @@
 package naointerface.main;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Test {
 	
 	
+	private static <E extends Object> void printList(List<E> list) {
+		for(E e : list) {
+			System.out.println(e);
+		}
+	}
 	
 	public static void main(String...args) {
 		
@@ -15,8 +23,7 @@ public class Test {
 //		nao.showRock("Rock.");
 //		nao.say("schlägt");
 //		nao.showScissors("Scissors.");
-//		
-		
+	
 		
 	}
 }

@@ -2,6 +2,8 @@ package naointerface.utils;
 
 public final class Constants {
 	private Constants() {}
+	public static final String LINE_BREAK = "\n";
+	
 	
 	public static final double EPSILON = 1e-6;
 	

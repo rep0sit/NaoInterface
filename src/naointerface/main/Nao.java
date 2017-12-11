@@ -1,4 +1,9 @@
 package naointerface.main;
+
+import com.aldebaran.qi.Session;
+
+import speech.main.SpeechRecognition;
+
 /**
  * Ein Nao Objekt stellt eine Schnittstelle zu einem Nao Roboter dar.
  * An diesem Objekt können verschiedene Methoden ausgeführt werden,
@@ -9,6 +14,13 @@ package naointerface.main;
  *
  */
 public interface Nao {
+	/**
+	 * 
+	 * @return the session of the NAO instance.
+	 */
+	public Session getSession();
+	
+	
 	/**
 	 * 
 	 * @return the IP as a String.
@@ -106,4 +118,9 @@ public interface Nao {
 	 * @param text
 	 */
 	void sad(String text);
+	/**
+	 * 
+	 * @return a SpeechRecognition module.
+	 */
+	SpeechRecognition getSpechRecognition();
 }

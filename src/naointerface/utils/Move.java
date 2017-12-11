@@ -15,7 +15,8 @@ public class Move {
 	private final double time;
 	
 	public Move(String bodyPart, double angle) {
-		this(bodyPart, angle, STANDARD_MOVING_TIME / getSpeedMod());
+		this(bodyPart, angle, 
+				getSpeedMod() != 0.0 ? STANDARD_MOVING_TIME / getSpeedMod() : STANDARD_MOVING_TIME);
 		
 	}
 	
