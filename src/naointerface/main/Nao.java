@@ -74,53 +74,53 @@ public interface Nao {
 	 * tcp//{IP-ADDRESS}:{PORT} 
 	 * @return
 	 */
-    String getUrl();
+    public String getUrl();
 	
 	/**
 	 * Der Nao Roboter spricht einen Text.
 	 * @param text
 	 */
-	void say(String text);
+    public void say(String text);
 	/**
 	 * Der Nao Roboter zeigt "Schere" und
 	 * spricht einen Text
 	 * @param text
 	 */
-	void showScissors(String text);
+    public void showScissors(String text);
 	/**
 	 * Der Nao Roboter zeigt "Stein" und
 	 * spricht einen Text
 	 * @param text
 	 */
-	void showRock(String text);
+    public void showRock(String text);
 	/**
 	 * Der Nao Roboter zeigt "Papier" und
 	 * spricht einen Text
 	 * @param text
 	 */
-	void showPaper(String text);
+    public void showPaper(String text);
 	/**
 	 * Der Nao Roboter macht eine begrüßende
 	 * Bewegung und spricht einen Text
 	 * @param text
 	 */
-	void greet(String text);
+    public void greet(String text);
 	
 	/**
 	 * Der Roboter jubelt und spricht einen
 	 * Text
 	 * @param text
 	 */
-	void happy(String text);
+    public void happy(String text);
 	/**
 	 * Der Roboter zeigt eine traurige Emotion
 	 * und spricht einen Text
 	 * @param text
 	 */
-	void sad(String text);
+    public void sad(String text);
 	/**
 	 * 
 	 * @return a SpeechRecognition module.
 	 */
-	SpeechRecognition getSpechRecognition();
+	public SpeechRecognition getSpechRecognition();
 }

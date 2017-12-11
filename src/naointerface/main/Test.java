@@ -3,6 +3,7 @@ package naointerface.main;
 import java.util.Arrays;
 import java.util.List;
 
+@SuppressWarnings("unused")
 public class Test {
 	
 	
@@ -24,6 +25,13 @@ public class Test {
 //		nao.say("schlägt");
 //		nao.showScissors("Scissors.");
 	
+		
+		String a = "a a";
+		String b = "b";
+		
+		b.split(" ");
+		
+		System.out.println(b.split(" ").length);
 		
 	}
 }

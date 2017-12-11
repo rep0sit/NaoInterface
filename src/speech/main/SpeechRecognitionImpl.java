@@ -1,6 +1,7 @@
 package speech.main;
 import static naointerface.utils.Constants.LINE_BREAK;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
@@ -13,8 +14,6 @@ import com.aldebaran.qi.CallError;
 import com.aldebaran.qi.Session;
 import com.aldebaran.qi.helper.proxies.ALSpeechRecognition;
 
-import speech.utils.Words;
-
 class SpeechRecognitionImpl implements SpeechRecognition{
 	
 	private final String userName = "User";
@@ -24,7 +23,7 @@ class SpeechRecognitionImpl implements SpeechRecognition{
 	private ALSpeechRecognition asr;
 	public SpeechRecognitionImpl(Session session) {
 		this.session = session;
-		if(session.isConnected()) {
+		if(session != null) {
 			try {
 				asr = new ALSpeechRecognition(session);
 			} catch (Exception e) {
@@ -32,7 +31,6 @@ class SpeechRecognitionImpl implements SpeechRecognition{
 				e.printStackTrace();
 			}
 		}
-		addVocabulary(Words.DIGITS);
 	
 	}
 	
@@ -42,9 +40,6 @@ class SpeechRecognitionImpl implements SpeechRecognition{
 	@Override
 	public String toString() {
 		List<String> vocList = voca.stream().sorted(String.CASE_INSENSITIVE_ORDER).collect(Collectors.toList());
-		//vocList.sort(String.CASE_INSENSITIVE_ORDER);
-		
-		
 		StringBuilder sb = new StringBuilder();
 		int i = 0;
 		sb.append("This instance of SpeechRecognition knows " + voca.size() + " words:").append(LINE_BREAK);
@@ -57,18 +52,42 @@ class SpeechRecognitionImpl implements SpeechRecognition{
 	}
 	
 	private void actualizeVocs() {
-		
-		try {
-			asr.setVocabulary(voca.stream().collect(Collectors.toList()), false);
-		} catch (CallError | InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if(session != null) {
+			try {
+				asr.setVocabulary(voca.stream().collect(Collectors.toList()), false);
+			} catch (CallError | InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
+		
 	}
-
+	
+	/**
+	 * Takes a String, splits it by " " and returns the result as a Set.<br>
+	 * So if the String is "a b", <br>
+	 * The result will include two elements {a,b}.<br>
+	 * But the String "a a a" <br>
+	 * will just include one element {a}.
+	 * 
+	 * @param c
+	 * @return
+	 */
+	private Set<String> stringToWordSet(String s){
+		Set<String> set = new HashSet<>();
+		String[] sAry = s.split(" ");
+		set.addAll(Arrays.asList(sAry));
+		return set;
+	}
+	
+	
+	
 	@Override
 	public void addVocabulary(Collection<String> voca) {
-		this.voca.addAll(voca);
+		for(String s : voca) {
+			this.voca.addAll(stringToWordSet(s));
+		}
+	
 		actualizeVocs();
 	}
 
@@ -89,6 +108,16 @@ class SpeechRecognitionImpl implements SpeechRecognition{
 			ret.add(it.next());
 		}
 		return ret;
+	}
+
+
+
+
+	@Override
+	public void clearVocabulary() {
+		voca.clear();
+		actualizeVocs();
+		
 	}
 
 

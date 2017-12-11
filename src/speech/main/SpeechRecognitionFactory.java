@@ -1,7 +1,11 @@
 package speech.main;
 
 import com.aldebaran.qi.Session;
-
+/**
+ * A Factory Class for Speech Recognition modules.
+ *
+ *
+ */
 public final class SpeechRecognitionFactory {
 	private SpeechRecognitionFactory() {}
 	
