@@ -1,4 +1,4 @@
-package utils;
+package naointerface.utils;
 
 public final class Motors {
 	private Motors() {}

@@ -1,4 +1,4 @@
-package nao;
+package naointerface.main;
 
 public final class NaoFactory {
 	private NaoFactory() {}

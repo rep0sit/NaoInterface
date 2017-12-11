@@ -1,4 +1,4 @@
-package utils;
+package naointerface.utils;
 
 /**
  * Eine Klasse für eine einfache, 

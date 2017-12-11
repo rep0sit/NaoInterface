@@ -1,4 +1,6 @@
-package nao;
+package naointerface.main;
+
+import static naointerface.utils.Constants.*;
 
 import com.aldebaran.qi.Application;
 import com.aldebaran.qi.CallError;
@@ -7,15 +9,12 @@ import com.aldebaran.qi.helper.proxies.ALMotion;
 import com.aldebaran.qi.helper.proxies.ALRobotPosture;
 import com.aldebaran.qi.helper.proxies.ALTextToSpeech;
 
-import utils.Constants;
-import utils.Languages;
-import utils.Motors;
-import utils.Move;
-import utils.Moves;
-
-import utils.Stances;
-
-import static utils.Constants.*;
+import naointerface.utils.Constants;
+import naointerface.utils.Languages;
+import naointerface.utils.Motors;
+import naointerface.utils.Move;
+import naointerface.utils.Moves;
+import naointerface.utils.Stances;
 
 
 class NaoImpl implements Nao {

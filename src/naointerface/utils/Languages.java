@@ -1,4 +1,4 @@
-package utils;
+package naointerface.utils;
 
 public final class Languages {
 	private Languages() {}

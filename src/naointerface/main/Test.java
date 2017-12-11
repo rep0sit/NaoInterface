@@ -1,4 +1,4 @@
-package nao;
+package naointerface.main;
 
 public class Test {
 	

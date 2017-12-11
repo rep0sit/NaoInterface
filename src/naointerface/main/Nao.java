@@ -1,4 +1,4 @@
-package nao;
+package naointerface.main;
 /**
  * Ein Nao Objekt stellt eine Schnittstelle zu einem Nao Roboter dar.
  * An diesem Objekt können verschiedene Methoden ausgeführt werden,
