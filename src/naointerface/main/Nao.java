@@ -4,35 +4,65 @@ package naointerface.main;
  * An diesem Objekt können verschiedene Methoden ausgeführt werden,
  * die dann von einem Nao Roboter im Netzwerk ausgeführt werden.
  * Ein Nao Objekt wird über die Klasse NaoFactory erzeugt.
- * @author multipass
+ * @author Etienne Onasch
+ * @author Nelli Welker
  *
  */
 public interface Nao {
 	/**
 	 * 
-	 * @return the current language of the Nao Object 
-	 * as a String
+	 * @return the IP as a String.
 	 */
-	String getLanguage();
+	public String getIp();
 	/**
-	 * Stellt die Sprache für dieses Nao-Objekt ein.
-	 * @param language
+	 * 
+	 * @return the port as an int.
 	 */
-	void setLanguage(String language);
-//	/**
-//	 * Alle Motoren in die 0-Position.
-//	 */
-//	void standZero(float maxSpeedFraction);
-//	/**
-//	 * Initialer Stand. Nao kann von 
-//	 * dieser Pose aus alles tun.
-//	 */
-//	void standInit(float maxSpeedFraction);
-//	/**
-//	 * Pose mit geringem Energieverbrauch.
-//	 */
-//	void stand(float maxSpeedFraction);
-	
+    public int getPort();
+    /**
+     * A multiplier for NAO's movement speed.<br>
+     * Due to safety measures the input value for the parameter mult is normalized <br> 
+     * to the interval (0.5...1.5).<br><br>
+     * 
+     * The standard speed for applying stances is currently 50% of maxSpeed.<br>
+     * So with the multiplier it can modified to an absolute value <br> from <br>
+     * 50% * 0.5 = 25% maxSpeed<br>to<br>
+     * 50% * 1.5 = 75% maxSpeed.<br><br>
+     * 
+     * The current time for an limb (Motor) of the NAO to move into a new position <br>is 1.0 seconds.<br> 
+     * 
+     * So with the multiplier it can be modified to an absolute value <br> from <br>
+     * 
+     * 1.0 / 0.5 = 2 seconds (slow) <br>to<br>
+     * 1.0 / 1.5 = 0.666.. seconds (fast).
+     * 
+     * @param mult
+     */
+    public void setSpeedMod(double mult);
+    /**
+     * 
+     * @return the current SpeedMultiplier.
+     */
+    public double getSpeedMod();
+    /**
+     * Returns the current Volume of NAO's TextToSpeech Module.<br>
+     * It can be a value between 0.0 and 1.0.
+     * @return
+     */
+    public double getVolume();
+    /**
+     * Sets the volume of NAO's TextToSpeech Module.<br>
+     * The intput value of the parameter vol is normalized to the interval (0.0...1.0).
+     * @param vol
+     */
+    public void setVolume(double vol);
+	/**
+	 * Returns the URL of the Robot as a String.<br>
+	 * The Format is: <br>
+	 * tcp//{IP-ADDRESS}:{PORT} 
+	 * @return
+	 */
+    String getUrl();
 	
 	/**
 	 * Der Nao Roboter spricht einen Text.

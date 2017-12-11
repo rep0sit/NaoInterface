@@ -22,8 +22,10 @@ class NaoImpl implements Nao {
 	
 	private final int port;
 	private final String ip;
+	private final String url;
 	private final Application app;
 	private final Session session;
+	
 	
 	
 	private ALTextToSpeech tts;
@@ -35,9 +37,9 @@ class NaoImpl implements Nao {
 		this.ip = ip;
 		
 		String[] args = {};
-		String robotUrl = "tcp://" + ip + ":" + Integer.toString(port);
+		url = "tcp://" + ip + ":" + Integer.toString(port);
 		
-		app = new Application(args, robotUrl);
+		app = new Application(args, url);
 		
 		app.start();
 		session = app.session();
@@ -67,26 +69,6 @@ class NaoImpl implements Nao {
 			e.printStackTrace();
 		}
 	}
-	@Override
-	public String getLanguage() {
-		String l = null;
-		try {
-			l =  tts.getLanguage();
-		} catch (CallError | InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return l;
-	}
-	@Override
-	public void setLanguage(String language) {
-		try {
-			tts.setLanguage(language);
-		} catch (CallError | InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 	
 	
 	
@@ -106,9 +88,9 @@ class NaoImpl implements Nao {
 
 	@Override
 	public void showScissors(String text) {
-		stand(FLOAT_POINT_THREE);
+		stand();
 		
-		Move rightArm = new Move(Motors.RIGHT_SHOULDER_PITCH, .0, Constants.STANDARD_MOVING_TIME);
+		Move rightArm = new Move(Motors.RIGHT_SHOULDER_PITCH, .0);
 		Moves.moveAbsolute(session, motion, rightArm);
 		
 		try {
@@ -121,29 +103,26 @@ class NaoImpl implements Nao {
 		}
 		say(text);
 		sleep();
-		stand(FLOAT_POINT_THREE);
+		stand();
 
 	}
 
 	@Override
 	public void showRock(String text) {
-		stand(FLOAT_POINT_THREE);
-		Move rightArm = new Move(Motors.RIGHT_SHOULDER_PITCH, .0, Constants.STANDARD_MOVING_TIME);
-		Move turnForeArm = new Move(Motors.RIGHT_ELBOW_YAW, 0.0, Constants.STANDARD_MOVING_TIME);
+		stand();
+		Move rightArm = new Move(Motors.RIGHT_SHOULDER_PITCH, .0);
+		Move turnForeArm = new Move(Motors.RIGHT_ELBOW_YAW, 0.0);
 		Moves.moveAbsolute(session, motion, rightArm, turnForeArm);
-		
-		
-		
 		say(text);
 		sleep();
-		stand(FLOAT_POINT_THREE);
+		stand();
 	}
 
 	@Override
 	public void showPaper(String text) {
-		stand(FLOAT_ONE_POINT_ZERO);
-		Move rightArm = new Move(Motors.LEFT_SHOULDER_PITCH, .0, Constants.STANDARD_MOVING_TIME);
-		Move turnForeArm = new Move(Motors.LEFT_ELBOW_YAW, 0.0, Constants.STANDARD_MOVING_TIME);
+		stand();
+		Move rightArm = new Move(Motors.LEFT_SHOULDER_PITCH, 0.0);
+		Move turnForeArm = new Move(Motors.LEFT_ELBOW_YAW, 0.0);
 		
 		Moves.moveAbsolute(session, motion, rightArm, turnForeArm);
 		try {
@@ -158,19 +137,19 @@ class NaoImpl implements Nao {
 		
 		sleep();
 		say(text);
-		stand(FLOAT_POINT_THREE);
+		stand();
 
 	}
 
 	@Override
 	public void greet(String text) {
-		stand(FLOAT_POINT_THREE);
-		Move wave1 = new Move(Motors.LEFT_SHOULDER_PITCH, -50.0, STANDARD_MOVING_TIME);
-		Move wave2 = new Move(Motors.LEFT_SHOULDER_ROLL, 25.0, STANDARD_MOVING_TIME);
+		stand();
+		Move wave1 = new Move(Motors.LEFT_SHOULDER_PITCH, -50.0);
+		Move wave2 = new Move(Motors.LEFT_SHOULDER_ROLL, 25.0);
 		Moves.moveAbsolute(session, motion, wave1, wave2);
 		say(text);
 		sleep();
-		stand(Constants.FLOAT_ONE_POINT_ZERO);
+		stand();
 
 	}
 
@@ -178,7 +157,7 @@ class NaoImpl implements Nao {
 
 	@Override
 	public void happy(String text) {
-		stand(FLOAT_POINT_THREE);
+		stand();
 		double armAngle = -50.0;
 		double time = 1.0;
 		Move leftArm = 
@@ -192,19 +171,19 @@ class NaoImpl implements Nao {
 		say(text);
 		sleep();
 		
-		stand(FLOAT_POINT_SIX_FIVE);
+		stand();
 
 	}
 
 	@Override
 	public void sad(String text) {
-		stand(FLOAT_POINT_THREE);
+		stand();
 		
-		Move headDown = new Move(Motors.HEAD_PITCH, 15.0, STANDARD_MOVING_TIME);
+		Move headDown = new Move(Motors.HEAD_PITCH, 15.0);
 		Moves.moveAbsolute(session, motion, headDown);
 		say(text);
 		sleep();
-		stand(FLOAT_POINT_THREE);
+		stand();
 	}
 	/**
 	 * Alle Motoren in die 0-Position.
@@ -223,6 +202,7 @@ class NaoImpl implements Nao {
 	 * Initialer Stand. Nao kann von 
 	 * dieser Pose aus alles tun.
 	 */
+	@SuppressWarnings("unused")
 	private void standInit(float maxSpeedFraction) {
 		try {
 			posture.applyPosture(Stances.STAND_INIT, maxSpeedFraction);
@@ -232,6 +212,10 @@ class NaoImpl implements Nao {
 		}
 		
 	}
+	private void stand() {
+		stand(Constants.STANDARD_SPEED_FRACTION);
+	}
+	
 	/**
 	 * Pose mit geringem Energieverbrauch.
 	 */
@@ -243,6 +227,57 @@ class NaoImpl implements Nao {
 			e.printStackTrace();
 		}
 		
+	}
+
+	@Override
+	public String getIp() {
+		return ip;
+	}
+
+	@Override
+	public int getPort() {
+		return port;
+	}
+
+	@Override
+	public void setSpeedMod(double mod) {
+		Constants.setSpeedMod(mod);
+		
+	}
+
+	@Override
+	public double getSpeedMod() {
+		return Constants.getSpeedMod();
+	}
+
+	@Override
+	public double getVolume() {
+		double retVal =  0.0;
+		
+		try {
+			retVal = tts.getVolume();
+		} catch (CallError | InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return retVal;
+	}
+
+	@Override
+	public void setVolume(double vol) {
+		
+		try {
+			tts.setVolume((float) normalize(vol, 0.0, 1.0));
+		} catch (CallError | InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public String getUrl() {
+		return url;
 	}
 
 }

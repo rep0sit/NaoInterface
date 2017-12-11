@@ -1,5 +1,7 @@
 package naointerface.utils;
 
+import static naointerface.utils.Constants.*;
+
 /**
  * Eine Klasse für eine einfache, 
  * lineare Bewegung.
@@ -12,6 +14,10 @@ public class Move {
 	private final double angle;
 	private final double time;
 	
+	public Move(String bodyPart, double angle) {
+		this(bodyPart, angle, STANDARD_MOVING_TIME / getSpeedMod());
+		
+	}
 	
 	public Move(String bodyPart, double angle, double time) {
 		this.bodyPart = bodyPart;

@@ -3,6 +3,7 @@ package naointerface.utils;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import com.aldebaran.qi.Session;
 import com.aldebaran.qi.helper.proxies.ALMotion;
 
