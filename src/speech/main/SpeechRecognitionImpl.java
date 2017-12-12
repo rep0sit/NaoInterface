@@ -1,7 +1,6 @@
 package speech.main;
 import static naointerface.utils.Constants.LINE_BREAK;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
@@ -9,6 +8,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
+
+import static naointerface.utils.Constants.*;
 
 import com.aldebaran.qi.CallError;
 import com.aldebaran.qi.Session;
@@ -28,6 +29,8 @@ class SpeechRecognitionImpl implements SpeechRecognition{
 		if(session != null) {
 			try {
 				asr = new ALSpeechRecognition(session);
+				
+				
 				mem = new ALMemory(session);
 				asr.setVisualExpression(true);
 			} catch (Exception e) {
@@ -123,6 +126,31 @@ class SpeechRecognitionImpl implements SpeechRecognition{
 		voca.clear();
 		actualizeVocs();
 		
+	}
+
+
+
+
+	@Override
+	public String recordWord(int seconds) {
+		String word = null;
+		if(!voca.isEmpty()) {
+			seconds = normalize(seconds, 0, 10);
+			try {
+				asr.subscribe(userName);
+				System.out.println("Speech Recognition Engine started");
+				Thread.sleep(seconds * MILLISECONDS_PER_SECOND);
+				word = mem.getData(WORD_RECOGNIZED).toString();
+				asr.unsubscribe(userName);
+			} catch (CallError | InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else {
+			word = NO_VOCABULARY;
+		}
+		
+		return word;
 	}
 
 

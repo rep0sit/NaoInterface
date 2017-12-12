@@ -162,13 +162,13 @@ class NaoImpl implements Nao {
 	public void happy(String text) {
 		stand();
 		double armAngle = -50.0;
-		double time = 1.0;
+		
 		Move leftArm = 
-				new Move(Motors.LEFT_SHOULDER_PITCH, armAngle, time);
+				new Move(Motors.LEFT_SHOULDER_PITCH, armAngle);
 		Move rightArm = 
-				new Move(Motors.RIGHT_SHOULDER_PITCH, armAngle, time);
+				new Move(Motors.RIGHT_SHOULDER_PITCH, armAngle);
 		Move head = 
-				new Move(Motors.HEAD_PITCH, -30.0, time);
+				new Move(Motors.HEAD_PITCH, -30.0);
 		
 		Moves.moveAbsolute(session, motion, leftArm, rightArm, head);
 		say(text);

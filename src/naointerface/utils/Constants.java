@@ -5,16 +5,11 @@ public final class Constants {
 	public static final String LINE_BREAK = "\n";
 	
 	
+	public static final String NO_VOCABULARY = "Vocabulary is Empty!";
+	public static final String WORD_RECOGNIZED = "WordRecognized";
 	public static final double EPSILON = 1e-6;
 	
-	
-	public static final float FLOAT_ONE_POINT_ZERO = 1.0f;
-	public static final float FLOAT_POINT_EIGHT_FIVE = .85f;
-	public static final float FLOAT_POINT_SIX_FIVE = .65f;
-	public static final float FLOAT_POINT_FIVE = .5f;
-	public static final float FLOAT_POINT_THREE = .3f;
-	public static final float FLOAT_POINT_TWO_FIVE = .25f;
-	public static final float FLOAT_POINT_ZERO = .0f;
+	public static final int MILLISECONDS_PER_SECOND = 1000;
 	
 	
 	public static final int STANDARD_WAITING_TIME = 400;
@@ -45,5 +40,9 @@ public final class Constants {
 		}
 		
 		return number < min ? min : number > max ? max : number;
+	}
+	
+	public static int normalize(int number, int min, int max) {
+		return (int) normalize((double) number, (double) min, (double) max);
 	}
 }

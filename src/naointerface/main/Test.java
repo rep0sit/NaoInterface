@@ -26,12 +26,9 @@ public class Test {
 //		nao.showScissors("Scissors.");
 	
 		
-		String a = "a a";
-		String b = "b";
 		
-		b.split(" ");
-		
-		System.out.println(b.split(" ").length);
 		
 	}
+	
+	
 }

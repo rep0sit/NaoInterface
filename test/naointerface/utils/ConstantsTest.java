@@ -25,6 +25,9 @@ public class ConstantsTest {
 	public void testNormalize() {
 		assertEquals(normalize(-10.0, -3.0, -1.0), -3.0, EPSILON);
 		assertEquals(normalize(-10.0, -1.0, -3.0), -3.0, EPSILON);
+		
+		assertEquals(normalize(-10,-3,-1), -3);
+		assertEquals(normalize(-10,-1,-3), -3);
 	}
 
 }
