@@ -287,7 +287,7 @@ class NaoImpl implements Nao {
 	}
 
 	@Override
-	public SpeechRecognition getSpechRecognition() {
+	public SpeechRecognition getSpeechRecognition() {
 		
 		
 		

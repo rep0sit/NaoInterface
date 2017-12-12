@@ -120,5 +120,5 @@ public interface Nao {
 	 * 
 	 * @return a SpeechRecognition module.
 	 */
-	public SpeechRecognition getSpechRecognition();
+	public SpeechRecognition getSpeechRecognition();
 }
