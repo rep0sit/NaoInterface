@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 
 import com.aldebaran.qi.CallError;
 import com.aldebaran.qi.Session;
+import com.aldebaran.qi.helper.proxies.ALMemory;
 import com.aldebaran.qi.helper.proxies.ALSpeechRecognition;
 
 class SpeechRecognitionImpl implements SpeechRecognition{
@@ -21,17 +22,21 @@ class SpeechRecognitionImpl implements SpeechRecognition{
 	
 	private Set<String> voca = new HashSet<>();
 	private ALSpeechRecognition asr;
+	private ALMemory mem;
 	public SpeechRecognitionImpl(Session session) {
 		this.session = session;
 		if(session != null) {
 			try {
 				asr = new ALSpeechRecognition(session);
+				mem = new ALMemory(session);
+				asr.setVisualExpression(true);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-	
+		
+
 	}
 	
 	
