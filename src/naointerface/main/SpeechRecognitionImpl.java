@@ -1,4 +1,4 @@
-package speech.main;
+package naointerface.main;
 import static naointerface.utils.Constants.LINE_BREAK;
 
 import java.util.Arrays;

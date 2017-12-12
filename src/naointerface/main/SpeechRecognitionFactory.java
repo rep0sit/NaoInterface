@@ -1,4 +1,4 @@
-package speech.main;
+package naointerface.main;
 
 import com.aldebaran.qi.Session;
 /**
@@ -6,10 +6,12 @@ import com.aldebaran.qi.Session;
  *
  *
  */
-public final class SpeechRecognitionFactory {
+final class SpeechRecognitionFactory {
 	private SpeechRecognitionFactory() {}
 	
-	public static SpeechRecognition getSpeechRecognition(Session session) {
+	static SpeechRecognition getSpeechRecognition(Session session) {
 		return new SpeechRecognitionImpl(session);
 	}
+	
+	
 }

@@ -1,4 +1,4 @@
-package speech.main;
+package naointerface.main;
 
 import static org.junit.Assert.assertTrue;
 
@@ -7,6 +7,9 @@ import java.util.HashSet;
 import java.util.List;
 
 import org.junit.Test;
+
+import naointerface.main.SpeechRecognition;
+import naointerface.main.SpeechRecognitionFactory;
 
 public class SpeechRecognitionImplTest {
 	

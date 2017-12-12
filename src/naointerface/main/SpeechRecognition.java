@@ -1,4 +1,4 @@
-package speech.main;
+package naointerface.main;
 
 import java.util.Collection;
 import java.util.Set;

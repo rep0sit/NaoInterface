@@ -15,8 +15,6 @@ import naointerface.utils.Motors;
 import naointerface.utils.Move;
 import naointerface.utils.Moves;
 import naointerface.utils.Stances;
-import speech.main.SpeechRecognition;
-import speech.main.SpeechRecognitionFactory;
 
 
 
@@ -290,7 +288,12 @@ class NaoImpl implements Nao {
 
 	@Override
 	public SpeechRecognition getSpechRecognition() {
+		
+		
+		
 		return SpeechRecognitionFactory.getSpeechRecognition(session);
 	}
-
+	
+	
+	
 }

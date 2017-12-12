@@ -2,8 +2,6 @@ package naointerface.main;
 
 import com.aldebaran.qi.Session;
 
-import speech.main.SpeechRecognition;
-
 /**
  * Ein Nao Objekt stellt eine Schnittstelle zu einem Nao Roboter dar.
  * An diesem Objekt können verschiedene Methoden ausgeführt werden,

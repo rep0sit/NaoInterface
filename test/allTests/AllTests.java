@@ -7,7 +7,7 @@ import org.junit.runners.Suite.SuiteClasses;
 @RunWith(Suite.class)
 @SuiteClasses({
 	naointerface.utils.ConstantsTest.class,
-	speech.main.SpeechRecognitionImplTest.class
+	naointerface.main.SpeechRecognitionImplTest.class
 	})
 public class AllTests {
 
