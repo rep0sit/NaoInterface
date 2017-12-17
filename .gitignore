@@ -5,6 +5,9 @@
 # Compiled class file
 *.class
 
+#eclipse config file
+*.prefs
+
 # Log file
 *.log
 
