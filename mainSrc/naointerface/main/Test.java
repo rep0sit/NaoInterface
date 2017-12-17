@@ -23,25 +23,25 @@ public class Test {
 		nao.standUp();
 		nao.setSpeedMod(1.5);
 		
-		nao.openRightHand();
-		nao.openLeftHand();
+//		nao.openRightHand();
+//		nao.openLeftHand();
+//		
+//		
+//		for(String s : BodyParts.SUPPORTED_BODY_PARTS) {
+//			
+//			double angle = s.charAt(0) == 'L' ? 360.0 : -360.0;
+//			Move next = new Move(s, angle);
+//			nao.moveRelative(next);
+//		}
 		
 		
-		for(String s : BodyParts.SUPPORTED_BODY_PARTS) {
-			
-			double angle = s.charAt(0) == 'L' ? 360.0 : -360.0;
-			Move next = new Move(s, angle);
-			nao.moveRelative(next);
-		}
 		
 		
-//		nao.setSpeedMod(1.5);
-		
-//		nao.greet("Hello User.");
-//		nao.say("Come with me if you want to live!");
-//		nao.showRock("Rock.");
-//		nao.say("beats");
-//		nao.showScissors("Scissors.");
+		nao.greet("Hello User.");
+		nao.say("Come with me if you want to live!");
+		nao.showRock("Rock.");
+		nao.say("beats");
+		nao.showScissors("Scissors.");
 		
 //		SpeechRecognition sr = nao.getSpeechRecognition();
 //		int seconds = 5;

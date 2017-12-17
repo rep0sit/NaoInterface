@@ -87,18 +87,11 @@ class NaoImpl implements Nao {
 	public void showScissors(String text) {
 		stand();
 		
-		Move rightArm = new Move(BodyParts.RIGHT_SHOULDER_PITCH, .0);
-		Moves.moveAbsolute(session, motion, rightArm);
-		
-		try {
-			motion.openHand(BodyParts.RIGHT_HAND);
-			motion.closeHand(BodyParts.RIGHT_HAND);
-			
-		} catch (CallError | InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		Moves.moveAbsolute(session, motion, new Move(BodyParts.RIGHT_SHOULDER_PITCH, .0));
 		say(text);
+		closeRightHand();
+		openRightHand();
+		closeRightHand();
 		sleep();
 		stand();
 
