@@ -152,7 +152,20 @@ public interface Nao {
 	 * This method opens both hands of the Nao Robot.
 	 */
 	public void openBothHands();
-	
+	/**
+	 * The nao instance will apply all the instances of Move in the <br>
+	 * varArgs list simultanously.<br>
+	 * This method will interpret the angles of the instances of Move <br>
+	 * as absolute positions.
+	 * @param moves the varArgs list of instances of Move.
+	 */
 	public void moveAbsolute(Move...moves);
+	/**
+	 * The nao instance will apply all the instances of Move in the <br>
+	 * varArgs list simultanously.<br>
+	 * This method will interpret the angles of the instances of Move <br>
+	 * as relative positions.
+	 * @param moves the varArgs list of instances of Move.
+	 */
 	public void moveRelative(Move...moves);
 }

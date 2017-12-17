@@ -7,20 +7,25 @@ import naointerface.exceptions.WrongBodyPartException;
 
 /**
  * This class represents a single, linear move. <br>
- * It consists of a bodypart and an angle in radans and a time in seconds. <br>
- * If you use the constructor with 3 arguments, the third argument <br>
- * is the time in seconds.<br>
- * If you use the constructor with 2 arguments,<br>
- * The time of this moves is 1.0 seconds / (the global speed modification). <br>
+ * It consists of a bodypart and an angle. <br>
  * 
- * @author Nelli Welker, Etienne Onasch
+ *
+ * @author Nelli welker, Etienne onasch
  *
  */
 public class Move {
 	private final String bodyPart;
 	private final double angle;
 	private final double time;
+	private static final double MIN_DEGREE = -360.0;
+	private static final double MAX_DEGREE = -MIN_DEGREE;
 	
+	/**
+	 * 
+	 * @param bodyPart you can view the list of supported BodyParts <br>
+	 * in naointerface.main.Moves.SUPPORTED_BODYPARTS."
+	 * @param angle the angle in degree. <br> will be normalized to the interval (-360.0...360.0)
+	 */
 	public Move(String bodyPart, double angle){
 		this(bodyPart, angle, 
 				getSpeedMod() != 0.0 ? STANDARD_MOVING_TIME / getSpeedMod() : STANDARD_MOVING_TIME);
@@ -34,13 +39,12 @@ public class Move {
 				throw new WrongBodyPartException("This BodyPart is not supported! You can get"
 						+ " the supported BodyParts from the list naointerface.main.Moves.SUPPORTED_BODYPARTS.");
 			} catch (WrongBodyPartException e) {
-				// TODO Auto-generated catch block
-				// e.printStackTrace();
+				System.out.println("Can't apply this move.");
 			}
 		}
 		
 		this.bodyPart = bodyPart;
-		this.angle = angle;
+		this.angle = Constants.normalize(angle, MIN_DEGREE, MAX_DEGREE);
 		this.time = time;
 	}
 

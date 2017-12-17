@@ -29,7 +29,7 @@ public class Test {
 		
 		for(String s : BodyParts.SUPPORTED_BODY_PARTS) {
 			
-			double angle = s.charAt(0) == 'L' ? 30.0 : -30.0;
+			double angle = s.charAt(0) == 'L' ? 360.0 : -360.0;
 			Move next = new Move(s, angle);
 			nao.moveRelative(next);
 		}
