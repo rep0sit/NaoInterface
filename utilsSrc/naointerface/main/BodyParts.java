@@ -7,61 +7,63 @@ import java.util.List;
 public final class BodyParts {
 	private BodyParts() {}
 	//HEAD
-	@Nomove
-	public static final String HEAD = "Head";
+	
+	public static final String HEAD = "Head"; 
+	@Supported
 	public static final String HEAD_YAW = "HeadYaw";
+	@Supported
 	public static final String HEAD_PITCH = "HeadPitch";
 	
 	//LEFT ARM
-	@Nomove
+	
 	public static final String LEFT_ARM = "LArm";
+	@Supported
 	public static final String LEFT_SHOULDER_PITCH = "LShoulderPitch";
+	@Supported
 	public static final String LEFT_SHOULDER_ROLL = "LShoulderRoll";
+	@Supported
 	public static final String LEFT_ELBOW_YAW = "LElbowYaw";
+	@Supported
 	public static final String LEFT_ELBOW_ROLL = "LElbowRoll";
+	@Supported
 	public static final String LEFT_WRIST_YAW = "LWristYaw";
+	@Supported
 	public static final String LEFT_HAND = "LHand";
 	
 	// RIGHT ARM
-	@Nomove
+	
 	public static final String RIGHT_ARM = "RArm";
+	@Supported
 	public static final String RIGHT_SHOULDER_PITCH = "RShoulderPitch";
+	@Supported
 	public static final String RIGHT_SHOULDER_ROLL = "RShoulderRoll";
+	@Supported
 	public static final String RIGHT_ELBOW_YAW = "RElbowYaw";
+	@Supported
 	public static final String RIGHT_ELBOW_ROLL = "RElbowRoll";
+	@Supported
 	public static final String RIGHT_WRIST_YAW = "RWristYaw";
+	@Supported
 	public static final String RIGHT_HAND = "RHand";
 	
 	// LEFT LEG
-	@Nomove
+	
 	public static final String LEFT_LEG = "LLeg";
-	@Nomove
 	public static final String LEFT_HIP_YAW_PITCH = "LHipYawPitch";
-	@Nomove
 	public static final String LEFT_HIP_ROLL = "LHipRoll";
-	@Nomove
 	public static final String LEFT_HIP_PITCH = "LHipPitch";
-	@Nomove
 	public static final String LEFT_KNEE_PITCH = "LKneePitch";
-	@Nomove
 	public static final String LEFT_ANKLE_PITCH = "LAnklePitch";
-	@Nomove
 	public static final String LEFT_ANKLE_ROLL = "LAnkleRoll";
 	
 	// RIGHT LEG
-	@Nomove
+	
 	public static final String RIGHT_LEG = "RLeg";
-	@Nomove
 	public static final String RIGHT_HIP_YAW_PITCH = "RHipYawPitch";
-	@Nomove
 	public static final String RIGHT_HIP_ROLL = "RHipRoll";
-	@Nomove
 	public static final String RIGHT_HIP_PITCH = "RHipPitch";
-	@Nomove
 	public static final String RIGHT_KNEE_PITCH = "RKneePitch";
-	@Nomove
 	public static final String RIGHT_ANKLE_PITCH = "RAnklePitch";
-	@Nomove
 	public static final String RIGHT_ANKLE_ROLL = "RAnkleRoll";
 	
 	/**
@@ -95,7 +97,7 @@ public final class BodyParts {
 		for(Field f : allFields) {
 			try {
 				String val = f.isAnnotationPresent(NoBodyPart.class) ? null : (String)f.get(null);
-				boolean check = supportedOnly ? !f.isAnnotationPresent(Nomove.class) : !supportedOnly;
+				boolean check = supportedOnly ? f.isAnnotationPresent(Supported.class) : !supportedOnly;
 				if(check && val != null) {
 					valueList.add(val);
 				}
