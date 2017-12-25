@@ -10,8 +10,6 @@ import com.aldebaran.qi.helper.proxies.ALMotion;
 final class Moves {
 	private Moves() {}
 	
-	
-	
 	/**
 	 * 
 	 * A movement of actuators and/or motors with endpositions relatively to the ZERO-Position.
