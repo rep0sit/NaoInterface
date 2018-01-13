@@ -48,7 +48,8 @@ public interface SpeechRecognition {
 	 * If the parameter {@code boolean prob} is true, <br>
 	 * This method will return a whole sentence, that includes <br>
 	 * the word plus the probability that this word matched the speech. <br>
-	 * Otherwise it will just return the word with the highest probability.
+	 * Otherwise it will just return the word with the highest probability. <br>
+	 * If a word can't be detected, this method will return {@code null}.
 	 * @param seconds the window of time for the user to speak.
 	 * @param prob if this is true, this module will return a whole sentence with further infos
 	 * @return The result as a String.
