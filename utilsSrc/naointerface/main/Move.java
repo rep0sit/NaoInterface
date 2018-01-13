@@ -50,7 +50,6 @@ public class Move {
 
 	/**
 	 * Returns a String representation of this bodypart.<br>
-	 * 
 	 * @return the bodypart.
 	 */
 	String getBodyPart() {

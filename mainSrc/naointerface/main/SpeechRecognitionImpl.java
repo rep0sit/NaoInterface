@@ -34,11 +34,8 @@ class SpeechRecognitionImpl implements SpeechRecognition{
 		if(session != null) {
 			try {
 				asr = new ALSpeechRecognition(session);
-				
-				
 				mem = new ALMemory(session);
 				asr.setVisualExpression(true);
-				
 				this.addVocabulary(NAO);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -46,22 +43,24 @@ class SpeechRecognitionImpl implements SpeechRecognition{
 			}
 		}
 		
-
 	}
 	
-	
-	
-
 	@Override
 	public String toString() {
-		List<String> vocList = voca.stream().sorted(String.CASE_INSENSITIVE_ORDER).collect(Collectors.toList());
+		List<String> vocList = voca.stream()
+				.sorted(String.CASE_INSENSITIVE_ORDER)
+				.collect(Collectors.toList());
 		StringBuilder sb = new StringBuilder();
 		int i = 0;
-		sb.append("This instance of SpeechRecognition knows " + voca.size() + " words:").append(LINE_BREAK);
+		sb.append("This instance of SpeechRecognition knows " + voca.size() + " words:")
+		.append(LINE_BREAK);
 		for(String s : vocList) {
-			sb.append("Word#").append(++i).append(": ").append(s).append(LINE_BREAK);
+			sb.append("Word#")
+			.append(++i)
+			.append(": ")
+			.append(s)
+			.append(LINE_BREAK);
 		}
-		
 		
 		return sb.toString();
 	}
@@ -73,7 +72,8 @@ class SpeechRecognitionImpl implements SpeechRecognition{
 					voca.add(NAO);
 				}
 				
-				asr.setVocabulary(voca.stream().collect(Collectors.toList()), false);
+				asr.setVocabulary(voca.stream()
+						.collect(Collectors.toList()), false);
 				
 			} catch (CallError | InterruptedException e) {
 				// TODO Auto-generated catch block
@@ -121,9 +121,6 @@ class SpeechRecognitionImpl implements SpeechRecognition{
 		addVocabulary(Arrays.asList(vocas));
 	}
 
-
-
-
 	@Override
 	public Set<String> getVocabulary() {
 		Iterator<String> it = voca.iterator();
@@ -136,17 +133,12 @@ class SpeechRecognitionImpl implements SpeechRecognition{
 	}
 
 
-
-
 	@Override
 	public void clearVocabulary() {
 		voca.clear();
-		
 		actualizeVocs();
 		
 	}
-
-
 
 	@SuppressWarnings({ "rawtypes" })
 	@Override
@@ -161,16 +153,10 @@ class SpeechRecognitionImpl implements SpeechRecognition{
 				Thread.sleep(seconds * MILLISECONDS_PER_SECOND);
 				Object obj = mem.getData(WORD_RECOGNIZED);
 				asr.unsubscribe(userName);
-
 				sAry = (ArrayList) obj;
-				
-				
 				String highestMatch = String.valueOf(sAry.get(0));
 				String probVal = String.valueOf(sAry.get(1));
-				
 				double numericProbVal = Double.valueOf(probVal);
-				
-				
 				retVal = numericProbVal < 0.0 ? "I couldn't understand what you just said. Maybe the word isn't in my vocabulary." :
 					prob ? 
 						"I understood the word: " + highestMatch + ", with a probability of " 
@@ -186,9 +172,6 @@ class SpeechRecognitionImpl implements SpeechRecognition{
 		}
 		return retVal;
 	}
-
-
-
 
 	@Override
 	public void phrasesAllowed(boolean allowed) {

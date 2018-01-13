@@ -9,8 +9,6 @@ import com.aldebaran.qi.helper.proxies.ALMotion;
 import com.aldebaran.qi.helper.proxies.ALRobotPosture;
 import com.aldebaran.qi.helper.proxies.ALTextToSpeech;
 
-
-
 class NaoImpl implements Nao {
 	
 	
@@ -19,8 +17,6 @@ class NaoImpl implements Nao {
 	private final String url;
 	private final Application app;
 	private final Session session;
-	
-	
 	
 	private ALTextToSpeech tts;
 	private ALMotion motion;

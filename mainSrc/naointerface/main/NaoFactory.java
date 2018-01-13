@@ -29,7 +29,6 @@ public final class NaoFactory {
 			nao = new NaoImpl(ip, port);
 		}
 		
-		
 		return nao;
 	}
 }
