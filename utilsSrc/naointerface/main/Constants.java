@@ -31,7 +31,7 @@ final class Constants {
 	/**
 	 * Sets the global speed modification.<br>
 	 * this value will be normalized to the interval <br>
-	 * [MIN_SPEED_MOD...MAX_SPEED_MOD]
+	 * [0.5...1.5]
 	 * @param mod the double value 
 	 */
 	public static void setSpeedMod(double mod) {

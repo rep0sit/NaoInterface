@@ -1,6 +1,6 @@
 package naointerface.main;
 /**
- * 
+ * This factory class instantiates Nao objects.
  * @author Etienne Onasch
  * @author Nelli Welker
  *

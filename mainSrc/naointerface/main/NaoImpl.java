@@ -53,7 +53,12 @@ class NaoImpl implements Nao {
 		
 		
 	}
-	
+	/**
+	 * This method invokes
+	 * the Thread.sleep(long millis) Method with the long value
+	 * {@code naointerface.main.Constants.STANDARD_WAITING_TIME}
+	 * which is 400L.
+	 */
 	private void sleep() {
 		try {
 			Thread.sleep(STANDARD_WAITING_TIME);
@@ -172,7 +177,7 @@ class NaoImpl implements Nao {
 		stand();
 	}
 	/**
-	 * Alle Motoren in die 0-Position.
+	 * Initial stand. All actuators in the Zero-Position.
 	 */
 	@SuppressWarnings("unused")
 	private void standZero(float maxSpeedFraction) {
@@ -185,8 +190,7 @@ class NaoImpl implements Nao {
 		
 	}
 	/**
-	 * Initialer Stand. Nao kann von 
-	 * dieser Pose aus alles tun.
+	 * Initial stand. From this pose the Nao robot can do everything.
 	 */
 	@SuppressWarnings("unused")
 	private void standInit(float maxSpeedFraction) {
@@ -198,12 +202,18 @@ class NaoImpl implements Nao {
 		}
 		
 	}
+	/**
+	 * Initial stand with low power consumption.
+	 * This method invokes the method <br>
+	 * {@code private void stand(float maxSpeedFraction)}
+	 * with <br>{@code maxSpeedFraction = 0.5 * getSpeedMod()}.
+	 */
 	private void stand() {
 		stand(Constants.STANDARD_SPEED_FRACTION * (float)getSpeedMod());
 	}
 	
 	/**
-	 * Pose mit geringem Energieverbrauch.
+	 * Initial stand with low power consumption.
 	 */
 	private void stand(float maxSpeedFraction) {
 		try {

@@ -64,7 +64,9 @@ class SpeechRecognitionImpl implements SpeechRecognition{
 		
 		return sb.toString();
 	}
-	
+	/**
+	 * This method actualizes the vocabulary of The ALSpeechRecognition module of the nao robot.
+	 */
 	private void actualizeVocs() {
 		if(session != null) {
 			try {
