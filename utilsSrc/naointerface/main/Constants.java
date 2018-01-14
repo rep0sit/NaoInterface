@@ -1,5 +1,10 @@
 package naointerface.main;
-
+/**
+ * This class consist of constants and static helper methods.
+ * @author Nelli Welker
+ * @author Etienne Onasch
+ *
+ */
 final class Constants {
 	private Constants() {}
 	public static final String LINE_BREAK = "\n";

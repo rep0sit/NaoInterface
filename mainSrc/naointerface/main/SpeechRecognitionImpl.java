@@ -157,7 +157,7 @@ class SpeechRecognitionImpl implements SpeechRecognition{
 				String highestMatch = String.valueOf(sAry.get(0));
 				String probVal = String.valueOf(sAry.get(1));
 				double numericProbVal = Double.valueOf(probVal);
-				retVal = numericProbVal < 0.0 ? "I couldn't understand what you just said. Maybe the word isn't in my vocabulary." :
+				retVal = numericProbVal < 0.0 ? null :
 					prob ? 
 						"I understood the word: " + highestMatch + ", with a probability of " 
 						+ probVal + "." : 

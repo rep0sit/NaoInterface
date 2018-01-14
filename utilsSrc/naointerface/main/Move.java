@@ -35,12 +35,9 @@ public class Move {
 	private Move(String bodyPart, double angle, double time){
 		
 		if(!BodyParts.SUPPORTED_BODY_PARTS.contains(bodyPart)) {
-			try {
-				throw new WrongBodyPartException("This BodyPart is not supported! You can get"
+			throw new WrongBodyPartException("This BodyPart is not supported! You can get"
 						+ " the supported BodyParts from the list naointerface.main.Moves.SUPPORTED_BODYPARTS.");
-			} catch (WrongBodyPartException e) {
-				System.out.println("Can't apply this move.");
-			}
+			
 		}
 		
 		this.bodyPart = bodyPart;

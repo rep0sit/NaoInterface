@@ -40,7 +40,7 @@ class NaoImpl implements Nao {
 		
 		try {
 			tts = new ALTextToSpeech(session);
-			tts.setLanguage(Languages.ENGLISH);
+			tts.setLanguage("English");
 			motion = new ALMotion(session);
 			posture = new ALRobotPosture(session);
 			

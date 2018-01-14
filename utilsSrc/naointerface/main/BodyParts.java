@@ -3,7 +3,24 @@ package naointerface.main;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * This utility class consist all the names for the Bodyparts of a Nao robot, that are
+ * used in the JNaoQi API.
+ * Some of them are marked with a {@code @Supported} annotation.<br><br>
+ * The list {@code naointerface.main.BodyParts.BODY_PARTS} consists all the fields that are
+ * in this class that are NOT marked with a {@code @NoBodyPart} annotation.<br>
+ * The list {@code naointerface.main.BodyParts.SUPPORTED_BODY_PARTS} consists all the fields
+ * that are in this class that are marked with a {@code @Supported} annotation.<br>
+ * Bodyparts that are marked with the {@code @Supported} annotation can be used to invoke
+ * the constructor of the class {@code naointerface.main.Move}.
+ * <br><br>
+ * **NOTE FOR DEVELOPERS**:<br>
+ * Both of the lists mentioned above update themselves during 'compile time' with the help of 
+ * reflections.
+ * @author Nelli Welker
+ * @author Etienne Onasch
+ *
+ */
 public final class BodyParts {
 	private BodyParts() {}
 	//HEAD

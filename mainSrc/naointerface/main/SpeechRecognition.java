@@ -3,7 +3,8 @@ package naointerface.main;
 import java.util.Collection;
 import java.util.Set;
 /**
- * 
+ * A SpeechRecognition is a module that can be instantiated from a
+ * {@code naointerface.main.Nao} object. (method: {@code getSpeechRecognition()})
  * @author Etienne Onasch
  * @author Nelli Welker
  */
