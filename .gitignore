@@ -19,6 +19,7 @@
 
 # Package Files #
 *.jar
+!libs/*.jar
 *.war
 *.ear
 *.zip

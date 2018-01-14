@@ -4,7 +4,7 @@
 	<classpathentry kind="src" path="mainSrc"/>
 	<classpathentry kind="src" path="testSrc"/>
 	<classpathentry kind="src" path="utilsSrc"/>
-	<classpathentry kind="lib" path="libs/java-naoqi-sdk-2.1.4.13-linux64.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/java-naoqi-sdk-2.1.4.13-linux64.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
