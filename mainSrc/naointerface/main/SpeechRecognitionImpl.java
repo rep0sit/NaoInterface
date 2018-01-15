@@ -29,7 +29,7 @@ class SpeechRecognitionImpl implements SpeechRecognition{
 	private Set<String> voca = new HashSet<>();
 	private ALSpeechRecognition asr;
 	private ALMemory mem;
-	public SpeechRecognitionImpl(Session session) {
+	SpeechRecognitionImpl(Session session) {
 		this.session = session;
 		if(session != null) {
 			try {

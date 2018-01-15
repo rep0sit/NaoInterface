@@ -22,6 +22,7 @@ final class SpeechRecognitionFactory {
 		}
 		return SPEECH_RECOG;
 		
+		
 	}
 	
 	
