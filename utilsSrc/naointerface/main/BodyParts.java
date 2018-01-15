@@ -13,10 +13,6 @@ import java.util.List;
  * that are in this class that are marked with a {@code @Supported} annotation.<br>
  * Bodyparts that are marked with the {@code @Supported} annotation can be used to invoke
  * the constructor of the class {@code naointerface.main.Move}.
- * <br><br>
- * **NOTE FOR DEVELOPERS**:<br>
- * Both of the lists mentioned above update themselves during 'compile time' with the help of 
- * reflections.
  * @author Nelli Welker
  * @author Etienne Onasch
  *
