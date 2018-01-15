@@ -30,7 +30,7 @@ public interface SpeechRecognition {
 	 * Returns a set of the vocabulary.
 	 * @return the know vocabulary as a Set.
 	 */
-	Set<String> getVocabulary();
+	public Set<String> getVocabulary();
 	
 	/**
 	 * Deletes the vocabulary of this instance of Speech Recognition.
