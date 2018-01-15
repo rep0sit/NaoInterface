@@ -49,7 +49,7 @@ public class Move {
 	 * Returns a String representation of this bodypart.<br>
 	 * @return the bodypart.
 	 */
-	String getBodyPart() {
+	public String getBodyPart() {
 		return bodyPart;
 	}
 
@@ -57,7 +57,7 @@ public class Move {
 	 * Returns the angle of this move in radans.
 	 * @return the angle in randans.
 	 */
-	double getAngleRadans() {
+	public double getAngleRadans() {
 		return Math.toRadians(angle);
 	}
 
@@ -67,7 +67,7 @@ public class Move {
 	 * it means that the robot try to make this move in 0.9 seconds.
 	 * @return the time in seconds
 	 */
-	double getTime() {
+	public double getTime() {
 		return time;
 	}
 	
